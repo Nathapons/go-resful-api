@@ -1,0 +1,22 @@
+networks:
+  finches_network:
+    name: finches_network
+    driver: bridge
+
+services:
+  finches-db:
+    image: postgres:13-alpine3.20
+    container_name: finches-db
+    hostname: postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=nestifly
+      - POSTGRES_PASSWORD=p@ssword1234
+      - POSTGRES_DB=stocklend
+    networks:
+      - finches_network
+
+volumes:
+  postgres_data:
