@@ -14,8 +14,6 @@ type Config struct {
 	CORS       cors.Config
 	PostgresDB PostgresDBConfig
 	Redis      RedisConfig
-	Ttb        TtbConfig
-	Liberator  LiberatorConfig
 }
 
 type ServerConfig struct {
@@ -48,18 +46,6 @@ type RedisConfig struct {
 	RedisUser    string
 	RedisPass    string
 	RedisDb      int
-}
-
-type TtbConfig struct {
-	GrantType    string
-	ClientId     string
-	ClientSecret string
-	UrlToken     string
-	UrlProxy     string
-}
-
-type LiberatorConfig struct {
-	LibUrl string
 }
 
 func LoadEnv() *Config {
@@ -130,16 +116,6 @@ func LoadEnv() *Config {
 			RedisUser:    os.Getenv("REDIS_USERNAME"),
 			RedisPass:    os.Getenv("REDIS_PASSWORD"),
 			RedisDb:      redisDB,
-		},
-		Ttb: TtbConfig{
-			GrantType:    os.Getenv("TTB_GRANT_TYPE"),
-			ClientId:     os.Getenv("TTB_CLIENT_ID"),
-			ClientSecret: os.Getenv("TTB_CLIENT_SECRET"),
-			UrlToken:     os.Getenv("TTB_URL_TOKEN"),
-			UrlProxy:     os.Getenv("TTB_URL_PROXY"),
-		},
-		Liberator: LiberatorConfig{
-			LibUrl: os.Getenv("LIBERATOR_URL"),
 		},
 	}
 }

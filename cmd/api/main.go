@@ -14,11 +14,6 @@ func main() {
 	// Initial Config
 	appConfig := configs.LoadEnv()
 
-	// Config from pkg
-	// email.NewMailProtocol(&appConfig.Mail, branch)
-	// pdb := database.SetupPostgresDB(&appConfig.PostgresDB)
-	// defer pdb.Close()
-
 	// Initial Server
 	app := server.CreateHTTPServer(&appConfig.Server)
 
