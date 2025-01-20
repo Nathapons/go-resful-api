@@ -6,13 +6,13 @@ import (
 	"log"
 	"time"
 
-	"github.com/go-resful-api/internal/configs"
+	"github.com/go-resful-api/internal/config"
 	"github.com/redis/go-redis/v9"
 )
 
 var Timeout = 1
 
-func NewRedis(cfg *configs.RedisConfig) (RedisClient, error) {
+func NewRedis(cfg *config.RedisConfig) (RedisClient, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(Timeout)*time.Second)
 	defer cancel()
 	rdb := redis.NewClient(&redis.Options{

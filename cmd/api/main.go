@@ -5,14 +5,14 @@ import (
 	"log"
 	"time"
 
-	"github.com/go-resful-api/internal/configs"
+	"github.com/go-resful-api/internal/config"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func main() {
 	// Initial Config
-	cfg := configs.LoadEnv()
+	cfg := config.LoadEnv()
 
 	// Initial Server
 	app := fiber.New(fiber.Config{

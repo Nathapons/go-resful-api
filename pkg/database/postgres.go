@@ -6,20 +6,20 @@ import (
 	"os"
 	"time"
 
-	"github.com/go-resful-api/internal/configs"
+	"github.com/go-resful-api/internal/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
 
-func SetupPostgresDB(configs *configs.PostgresDBConfig) PostgresDB {
+func SetupPostgresDB(config *config.PostgresDBConfig) PostgresDB {
 	dsn := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		configs.PostgresHost,
-		configs.PostgresPort,
-		configs.PostgresUser,
-		configs.PostgresPass,
-		configs.PostgresDb,
+		config.PostgresHost,
+		config.PostgresPort,
+		config.PostgresUser,
+		config.PostgresPass,
+		config.PostgresDb,
 	)
 
 	newLogger := logger.New(

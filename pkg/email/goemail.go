@@ -4,13 +4,13 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-resful-api/internal/configs"
+	"github.com/go-resful-api/internal/config"
 	"gopkg.in/gomail.v2"
 )
 
 var defaultToEmail, defaultFromEmail string
 
-func NewMailProtocol(cfg *configs.MailProtocolConfig, branch string) Mailer {
+func NewMailProtocol(cfg *config.MailProtocolConfig, branch string) Mailer {
 	dialer := gomail.NewDialer(cfg.MailerHost, cfg.MailerPort, cfg.MailerUser, cfg.MailerPass)
 	dialer.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
