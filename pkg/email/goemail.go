@@ -4,18 +4,9 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-resful-api/configs"
+	"github.com/go-resful-api/internal/configs"
 	"gopkg.in/gomail.v2"
 )
-
-type mailer struct {
-	dialer *gomail.Dialer
-	branch string
-}
-
-type Mailer interface {
-	Send(emailToArr []string, title string, body string)
-}
 
 var defaultToEmail, defaultFromEmail string
 

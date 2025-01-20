@@ -6,20 +6,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/go-resful-api/configs"
+	"github.com/go-resful-api/internal/configs"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
-
-type postgresDB struct {
-	db *gorm.DB
-}
-
-type PostgresDB interface {
-	GetDB() *gorm.DB
-	Close()
-}
 
 func SetupPostgresDB(configs *configs.PostgresDBConfig) PostgresDB {
 	dsn := fmt.Sprintf(

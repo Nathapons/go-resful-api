@@ -7,16 +7,6 @@ import (
 	"cloud.google.com/go/storage"
 )
 
-type CloudStorage interface {
-	UploadFile() error
-	DownloadFile() error
-	DeleteFile() error
-}
-
-type cloudStorage struct {
-	client *storage.Client
-}
-
 func NewGcpStrorage() CloudStorage {
 	ctx := context.Background()
 	client, err := storage.NewClient(ctx)
